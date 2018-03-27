@@ -1,0 +1,71 @@
+clc
+clear
+close all
+
+c=1;
+
+[xaxis1 , taxis1] = meshgrid(-10:0.1:10 , 0:0.25:2);
+
+columb = 1;
+row = 1;
+
+for t =0:0.25:2
+    for x=-10:0.1:10
+       Z1(row,columb)= uwave(x,t,c);
+       columb = columb +1;
+    end
+    columb = 1;
+    row = row + 1 ;
+end
+
+figure(1);
+surf(xaxis1,taxis1,Z1);
+title('Graph of u(x,t)');
+xlabel('Konum');
+ylabel('Zaman');
+zlabel('Genlik');
+
+[xaxis2 , taxis2] = meshgrid(0:0.1:10 , 0:0.25:2);
+
+columb = 1;
+row = 1;
+
+for t =0:0.25:2
+    for x=0:0.1:10
+       Z2(row,columb)= fxplus(x,t,c);
+       columb = columb +1;
+    end
+    columb = 1;
+    row = row + 1 ;
+end
+
+figure(2);
+surf(xaxis2,taxis2,Z2);
+title('Graph of u(x,t), x+');
+xlabel('Konum');
+ylabel('Zaman');
+zlabel('Genlik');
+
+[xaxis2 , taxis2] = meshgrid(0:0.1:10 , 0:0.25:2);
+
+columb = 1;
+row = 1;
+
+for t =0:0.25:2
+    for x=0:0.1:10
+       Z3(row,columb)= gxminus(x,t,c);
+       columb = columb +1;
+    end
+    columb = 1;
+    row = row + 1 ;
+end
+
+surf(xaxis3,taxis3,Z3);
+title('Graph of u(x,t), x+');
+xlabel('Konum');
+ylabel('Zaman');
+zlabel('Genlik');
+
+
+
+
